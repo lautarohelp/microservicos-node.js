@@ -34,7 +34,15 @@ router.get('/upsert/id/:name', function(req, res) {
     .catch((err) => {
       response.error(req, res, err.message, 500);
     })
+})
 
+router.get("/delete/:id", (req, res) => {
+  Controller.remove(req.params.id)
+      .then((user) => {
+          response.success(req, res, user, 200)
+      }).catch(err => {
+          response.error(req, res, err.message, 500)
+      })
 })
 
 module.exports = router;

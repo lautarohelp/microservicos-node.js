@@ -20,10 +20,15 @@ module.exports = function (injectedStore) {
     return store.upsert(TABLE, id, data);
   }
 
+  function remove(id) {
+    return store.remove(TABLE, id);
+  }
+
   return { 
     list,
     get,
-    upsert
+    upsert,
+    remove
   }
 }
 

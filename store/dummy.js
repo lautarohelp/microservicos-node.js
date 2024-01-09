@@ -22,6 +22,7 @@ async function upsert(table, id, name) {
 }
 
 async function remove(table, id) {
+  db[table].splice(Number(id) - 1, 1)
   return true;
 }
 
