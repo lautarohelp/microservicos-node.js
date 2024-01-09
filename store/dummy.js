@@ -13,12 +13,8 @@ async function get(table, id) {
   return col.filter(item => item.id === id)[0] || null;
 }
 
-async function upsert(table, id, name) {
-  let newUser = {
-    id: id,
-    name: name
-  }
-  db[table].push(newUser);
+async function upsert(table, data) {
+  db[table].push(data);
 }
 
 async function remove(table, id) {

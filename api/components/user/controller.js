@@ -1,7 +1,8 @@
+const { nanoid } = import('nanoid');
+
+
 
 const TABLE = 'user';
-
-
 
 module.exports = function (injectedStore) {
   let store = injectedStore;
@@ -16,8 +17,16 @@ module.exports = function (injectedStore) {
     return store.get(TABLE, id);
   }
 
-  function upsert(id, data) {
-    return store.upsert(TABLE, id, data);
+  function upsert(body) {
+    const user = {
+      name: body.name
+    }
+    if (body.id) {
+      user.id = body.id;
+    } else {
+      user.id = nanoid();
+    }
+    return store.upsert(TABLE, user);
   }
 
   function remove(id) {
