@@ -4,6 +4,12 @@ module.exports = {
   },
   jwt: {
     secret: process.env.JWT_SECRET || 'notasecret!',
+  },
+  mysql: {
+    host: process.env.MYSQL_HOST || 'localhost',
+    user: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_PASS || 'lauti4321',
+    database: process.env.MYSQL_DB || 'db_node_usuarios',
   }
 }
 
