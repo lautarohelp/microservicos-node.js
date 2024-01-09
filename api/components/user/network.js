@@ -32,15 +32,16 @@ function get(req, res) {
     })
 };
 
-  function upsert(req, res) {
+function upsert(req, res) {
   Controller.upsert(req.body)
-    .then((user) => {
-      response.success(req, res, user, 201)
-    })
-    .catch((err) => {
-      response.error(req, res, err.message, 500);
-    })
-};
+      .then((user) => {
+          response.success(req, res, user, 201);
+      })
+      .catch((err) => {
+          response.error(req, res, err.message, 500);
+      });
+  
+}
 
 function remove (req, res)  {
   Controller.remove(req.params.id)

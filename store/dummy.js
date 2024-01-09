@@ -13,8 +13,14 @@ async function get(table, id) {
   return col.filter(item => item.id === id)[0] || null;
 }
 
-async function upsert(table, data) {
-  db[table].push(data);
+async function upsert(tabla, data) {
+  if (!db[tabla]) {
+      db[tabla] = [];
+  }
+
+  db[tabla].push(data);
+
+  console.log(db);
 }
 
 async function remove(table, id) {
