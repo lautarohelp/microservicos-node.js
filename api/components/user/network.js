@@ -2,14 +2,15 @@ const express = require('express');
 
 const router = express.Router();
 
-const response = require('../../../network/response')
+const secure = require('./secure')
+const response = require('../../../network/response');
 const Controller = require('./index'); 
 
 
 router.get('/', list);
 router.get('/:id', get);
 router.post('/', upsert);
-router.put('/', upsert);
+router.put('/',secure('update'), upsert);
 router.delete("/delete/:id", remove);
 
 function list(req, res) {
