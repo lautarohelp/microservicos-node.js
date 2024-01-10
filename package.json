@@ -15,7 +15,8 @@
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.7.0",
-    "nanoid": "^3.3.7"
+    "nanoid": "^3.3.7",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "swagger-ui-express": "^5.0.0"
