@@ -1,11 +1,11 @@
 const express = require('express');
 
-const router = express.Router();
 
 const secure = require('./secure')
 const response = require('../../../network/response');
 const Controller = require('./index'); 
 
+const router = express.Router();
 
 router.get('/', list);
 router.post('/follow/:id',secure('follow'), follow);
