@@ -86,19 +86,18 @@ new Promise((resolve, reject) => {
     
 });
 
-function query(table, query){
+function query(table, query, join) {
+    let joinQuery = '';
+    if (join) {
+        const key = Object.keys(join)[0];
+        const val = join[key];
+        joinQuery = `JOIN ${key} ON ${table}.${val} = ${key}.id`;
+    }
+
     return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM ${table} WHERE ?`, query,(error, result)=>{
-            if(error) return reject(error)
-            
-            // Necesario para evitar el rowdatapacket
-            let output = {
-                id: result[0].id,
-                username: result[0].username,
-                password: result[0].password
-            }
-            
-            resolve(output, null)
+        connection.query(`SELECT * FROM ${table} ${joinQuery} WHERE ${table}.?`, query, (err, res) => {
+            if (err) return reject(err);
+            resolve(res[0] || null);
         })
     })
 }
@@ -107,5 +106,5 @@ module.exports = {
     list,
     get,
     upsert,
-    query
+    query,
 };
