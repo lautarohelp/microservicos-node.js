@@ -72,7 +72,8 @@ function update(table, data) {
 }
 
 const upsert = async (table, payload) =>
-  new Promise((resolve, reject) => {
+new Promise((resolve, reject) => {
+    
     console.log("DATA TO BE UPSERT: ", payload);
     connection.query(`INSERT INTO ${table} SET ? ON DUPLICATE KEY UPDATE ?`, [payload, payload], (error, data) => {
         console.log("UPSERT DATA: ", data);
@@ -82,7 +83,8 @@ const upsert = async (table, payload) =>
         }
         resolve(data);
     });
-  });
+    
+});
 
 function query(table, query){
     return new Promise((resolve, reject) => {
