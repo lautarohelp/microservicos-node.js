@@ -37,7 +37,6 @@ function upsert(req, res, next) {
           response.success(req, res, user, 201);
       })
       .catch(next);
-  
 }
 
 function remove (req, res, next)  {
