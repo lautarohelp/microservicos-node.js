@@ -16,6 +16,7 @@
     "mysql": "^2.18.1",
     "mysql2": "^3.7.0",
     "nanoid": "^3.3.7",
+    "redis": "^4.6.12",
     "request": "^2.88.2"
   },
   "devDependencies": {

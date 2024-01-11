@@ -63,9 +63,6 @@ function createRemoteDB(host, port) {
 
     return {
         list,
-        get,
-        upsert,
-        query
     }
 }
 
